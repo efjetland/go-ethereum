@@ -20,9 +20,9 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/efjetland/go-ethereum/common"
+	"github.com/efjetland/go-ethereum/core/state"
+	"github.com/efjetland/go-ethereum/params"
 	"github.com/holiman/uint256"
 )
 

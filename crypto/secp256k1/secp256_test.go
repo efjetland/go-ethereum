@@ -145,6 +145,7 @@ func TestRandomMessagesWithRandomKeys(t *testing.T) {
 }
 
 func signAndRecoverWithRandomMessages(t *testing.T, keys func() ([]byte, []byte)) {
+	recidCount := make([]int, 65)
 	for i := 0; i < TestCount; i++ {
 		pubkey1, seckey := keys()
 		msg := csprngEntropy(32)
@@ -155,10 +156,17 @@ func signAndRecoverWithRandomMessages(t *testing.T, keys func() ([]byte, []byte)
 		if sig == nil {
 			t.Fatal("signature is nil")
 		}
-		compactSigCheck(t, sig)
+
+		for i, b := range sig {
+			recid := int(b)
+			if recid < 4 && recid > 0 {
+				recidCount[i] += 1
+			}
+		}
+		//compactSigCheck(t, sig)
 
 		// TODO: why do we flip around the recovery id?
-		sig[len(sig)-1] %= 4
+		//sig[len(sig)-1] %= 4
 
 		pubkey2, err := RecoverPubkey(msg, sig)
 		if err != nil {
@@ -171,6 +179,7 @@ func signAndRecoverWithRandomMessages(t *testing.T, keys func() ([]byte, []byte)
 			t.Fatalf("pubkey mismatch: want: %x have: %x", pubkey1, pubkey2)
 		}
 	}
+	t.Log(recidCount)
 }
 
 func TestRecoveryOfRandomSignature(t *testing.T) {

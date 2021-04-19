@@ -25,15 +25,15 @@ import (
 	"os"
 	"reflect"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/accounts/scwallet"
-	"github.com/ethereum/go-ethereum/accounts/usbwallet"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/internal/ethapi"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/signer/storage"
+	"github.com/efjetland/go-ethereum/accounts"
+	"github.com/efjetland/go-ethereum/accounts/keystore"
+	"github.com/efjetland/go-ethereum/accounts/scwallet"
+	"github.com/efjetland/go-ethereum/accounts/usbwallet"
+	"github.com/efjetland/go-ethereum/common"
+	"github.com/efjetland/go-ethereum/common/hexutil"
+	"github.com/efjetland/go-ethereum/internal/ethapi"
+	"github.com/efjetland/go-ethereum/log"
+	"github.com/efjetland/go-ethereum/signer/storage"
 )
 
 const (
